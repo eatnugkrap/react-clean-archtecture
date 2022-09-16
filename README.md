@@ -53,3 +53,11 @@ src/page/somePage/components/SomeComponent.tsx
 src/components/SomeComponent/index.tsx
 # 데이터를 모르는 헤드리스 컴포넌트. UI 스테이트외에 상태를 가지지 않는 녀석들.
 ```
+
+## Todo
+
+우선은 지금 사용중인 형태를 구조화하는데에 그쳐서 좀 불편한 부분이 있음...
+
+repository 쪽에서 query client나 recoil state tree에 직접 접근하는 방식으로 데이터를 다루는 인터페이스를 만들어서 노출시키면
+
+service 쪽이 좀 더 service 스러워지지 않을까 싶다. ui 는 service에만 직접적으로 의존하는 형태로.
