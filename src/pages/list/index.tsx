@@ -5,7 +5,7 @@ import styled from "styled-components";
 import PostRepository from "../../data/post/post.repository";
 import PostService from "../../domain/post/post.service";
 import Box from "../../components/Box";
-import PostListBox from "./components/postListBox";
+import PostListBox from "./components/PostListBox";
 
 // 이 페이지는 UI에 의존
 // UI는 도메인 / 데이터 레이어에 의존.

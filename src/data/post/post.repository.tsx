@@ -27,7 +27,7 @@ function usePosts<TFnData, TError, TData>(
 ) {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   return useQuery<UsePostsResults, TError, TData>(
-    queryKeys.list(),
+    ["posts"],
     () => {
       const getPostsRequest: GetPostsApiRequest = params;
       return PostApi.getPosts(getPostsRequest);
