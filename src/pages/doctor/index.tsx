@@ -3,6 +3,7 @@ import styled from "styled-components";
 import DoctorRepository, {
   UseAddDoctorParams,
 } from "../../data/doctor/doctor.repository";
+import useDoctorService from "../../domain/doctor/doctor.service";
 import DoctorService from "../../domain/doctor/doctor.service";
 import useForm from "../../shared/hooks/useForm";
 import DoctorListBox from "./components/DoctorListBox";
@@ -12,27 +13,22 @@ import DoctorListBox from "./components/DoctorListBox";
 
 const DoctorList: NextPage = () => {
   const useDoctorsParams = undefined;
+  const doctorService = useDoctorService();
+  const { data } = doctorService.useDoctors(useDoctorsParams);
 
-  const { data } = DoctorRepository.useDoctors(useDoctorsParams, {
-    select: DoctorService.parseArray,
-  });
-
-  const { mutate: addDoctorMutation } = DoctorRepository.useAddDoctor();
-  const { mutate: removeDoctorMutation } = DoctorRepository.useRemoveDoctor();
-
-  const { formState, onInput, submit } = useForm<UseAddDoctorParams>({
+  const { onInput, submit } = useForm<UseAddDoctorParams>({
     name: "",
     hospitalName: "",
   });
 
   const addDoctor = () => {
-    submit(addDoctorMutation);
+    submit(doctorService.addDoctor);
   };
 
   const removeDoctor = (id: number) => {
-    removeDoctorMutation({ id });
+    doctorService.removeDoctor({ id });
   };
-  
+
   return (
     <Screen>
       {data?.map((item) => (
