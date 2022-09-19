@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://my-json-server.typicode.com/eatnug/jsonServer/";
+const BASE_URL = "http://localhost:3001/";
 
 const client = axios.create({ baseURL: BASE_URL });
 

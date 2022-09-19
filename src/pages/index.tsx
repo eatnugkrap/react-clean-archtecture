@@ -12,7 +12,7 @@ import PostService from "../domain/post/post.service";
 const Home: NextPage = () => {
   return (
     <Screen>
-      <Link href="list">
+      <Link href="doctor">
         <a>to list</a>
       </Link>
     </Screen>
